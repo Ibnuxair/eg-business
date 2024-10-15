@@ -54,9 +54,9 @@ To obtain a token, users must authenticate through the login endpoint (not yet d
     "phone_number": "08012345678",
     "profile_image_url": "https://path.to/image.jpg"
   }
-**Responses**:
-- **Success**: 201 Created
-- **Error**: 400 Bad Request (missing fields)
+- **Responses**:
+  - ***Success***: 201 Created
+  - ***Error***: 400 Bad Request (missing fields)
 
 **Get Farmer by ID**
 - **Method**: GET
@@ -97,10 +97,10 @@ To obtain a token, users must authenticate through the login endpoint (not yet d
 
 **List Products**
 
-**Method**: GET
-**Endpoint**: `/products`
-**Description**: Fetches a list of all available products.
-**Response**:
+- **Method**: GET
+- **Endpoint**: `/products`
+- **Description**: Fetches a list of all available products.
+- **Response**:
   ```json
   [
     {
@@ -112,27 +112,27 @@ To obtain a token, users must authenticate through the login endpoint (not yet d
       "image_url": "https://path.to/product.jpg"
     }
   ]
-Success: 200 OK
-Error: 404 Not Found (no products found)
-Staff
-Add a Staff Member
+- **Success**: 200 OK
+- **Error**: 404 Not Found (no products found)
 
-Method: POST
-Endpoint: /staff
-Description: Adds a new staff member to the system.
-Request Body:
-json
-Copy code
-{
-  "name": "Jane Smith",
-  "email": "jane@example.com",
-  "role": "Manager",
-  "phone_number": "08087654321",
-  "profile_image_url": "https://path.to/image.jpg"
-}
-Responses:
-Success: 201 Created
-Error: 400 Bad Request (missing fields)
+### Staff
+
+**Add a Staff Member**
+- **Method**: POST
+- **Endpoint**: `/staff`
+- **Description**: Adds a new staff member to the system.
+- **Request Body**:
+  ```json
+  {
+    "name": "Jane Smith",
+    "email": "jane@example.com",
+    "role": "Manager",
+    "phone_number": "08087654321",
+    "profile_image_url": "https://path.to/image.jpg"
+  }
+- **Responses**:
+  - ***Success***: 201 Created
+  - ***Error***: 400 Bad Request (missing fields)
 Buyers
 Create a Buyer
 
