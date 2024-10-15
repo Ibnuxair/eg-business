@@ -72,9 +72,8 @@ To obtain a token, users must authenticate through the login endpoint (not yet d
     "phone_number": "08012345678",
     "profile_image_url": "https://path.to/image.jpg"
   }
-**Responses**:
-- **Success**: 200 OK
-- **Error**: 404 Not Found
+- ***Success***: 200 OK
+- ***Error***: 404 Not Found
 
 ### Products
 
@@ -96,7 +95,6 @@ To obtain a token, users must authenticate through the login endpoint (not yet d
 - **Error**: 400 Bad Request (missing fields)
 
 **List Products**
-
 - **Method**: GET
 - **Endpoint**: `/products`
 - **Description**: Fetches a list of all available products.
@@ -131,24 +129,25 @@ To obtain a token, users must authenticate through the login endpoint (not yet d
     "profile_image_url": "https://path.to/image.jpg"
   }
 - **Responses**:
-  - ***Success***: 201 Created
-  - ***Error***: 400 Bad Request (missing fields)
-Buyers
-Create a Buyer
+  - **Success**: 201 Created
+  - **Error**: 400 Bad Request (missing fields)
 
-Method: POST
-Endpoint: /buyers
-Description: Adds a new buyer to the system.
-Request Body:
-json
-Copy code
-{
-  "name": "Alice Johnson",
-  "email": "alice@example.com",
-  "phone_number": "08091234567",
-  "location": "Abuja"
-}
-Responses:
+### Buyers
+
+**Create a Buyer**
+- **Method**: POST
+- **Endpoint**: `/buyers`
+- **Description**: Adds a new buyer to the system.
+- **Request Body**:
+  ```json
+    {
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "phone_number": "08091234567",
+      "location": "Abuja"
+    }
+
+- **Responses**:
 Success: 201 Created
 Error: 400 Bad Request (missing fields)
 Get Buyer by ID
