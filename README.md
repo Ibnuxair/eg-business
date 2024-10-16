@@ -72,8 +72,8 @@ To obtain a token, users must authenticate through the login endpoint (not yet d
     "phone_number": "08012345678",
     "profile_image_url": "https://path.to/image.jpg"
   }
-- ***Success***: 200 OK
-- ***Error***: 404 Not Found
+- **Success**: 200 OK
+- **Error**: 404 Not Found
 
 ### Products
 
@@ -91,8 +91,8 @@ To obtain a token, users must authenticate through the login endpoint (not yet d
     "image_url": "https://path.to/product.jpg"
   }
 **Responses**:
-- **Success**: 201 Created
-- **Error**: 400 Bad Request (missing fields)
+- ***Success***: 201 Created
+- ***Error***: 400 Bad Request (missing fields)
 
 **List Products**
 - **Method**: GET
@@ -129,8 +129,8 @@ To obtain a token, users must authenticate through the login endpoint (not yet d
     "profile_image_url": "https://path.to/image.jpg"
   }
 - **Responses**:
-  - **Success**: 201 Created
-  - **Error**: 400 Bad Request (missing fields)
+  - ***Success***: 201 Created
+  - ***Error***: 400 Bad Request (missing fields)
 
 ### Buyers
 
@@ -148,109 +148,98 @@ To obtain a token, users must authenticate through the login endpoint (not yet d
     }
 
 - **Responses**:
-Success: 201 Created
-Error: 400 Bad Request (missing fields)
-Get Buyer by ID
+- ***Success***: 201 Created
+- ***Error***: 400 Bad Request (missing fields)
 
-Method: GET
-Endpoint: /buyers/{id}
-Response:
-json
-Copy code
-{
-  "id": 1,
-  "name": "Alice Johnson",
-  "email": "alice@example.com",
-  "phone_number": "08091234567",
-  "location": "Abuja"
-}
-Success: 200 OK
-Error: 404 Not Found
-Orders
-Create an Order
-
-Method: POST
-Endpoint: /orders
-Description: Creates a new order for a buyer.
-Request Body:
-json
-Copy code
-{
-  "buyer_id": 1,
-  "product_id": 1,
-  "quantity": 20,
-  "status": "pending"
-}
-Responses:
-Success: 201 Created
-Error: 400 Bad Request (missing fields)
-List Orders
-
-Method: GET
-Endpoint: /orders
-Response:
-json
-Copy code
-[
+**Get Buyer by ID**
+- **Method**: GET
+- **Endpoint**: `/buyers/{id}`
+- **Response**:
+  ```json
   {
     "id": 1,
+    "name": "Alice Johnson",
+    "email": "alice@example.com",
+    "phone_number": "08091234567",
+    "location": "Abuja"
+  }
+- **Success**: 200 OK
+- **Error**: 404 Not Found
+
+### Orders
+
+**Create an Order**
+- **Method**: POST
+- **Endpoint**: /orders
+- **Description**: Creates a new order for a buyer.
+- **Request Body**:
+  ```json
+  {
     "buyer_id": 1,
     "product_id": 1,
     "quantity": 20,
     "status": "pending"
   }
-]
-Success: 200 OK
-Error: 404 Not Found (no orders found)
-Transactions
-Create a Transaction
+- **Responses**:
+- ***Success***: 201 Created
+- ***Error***: 400 Bad Request (missing fields)
 
-Method: POST
-Endpoint: /transactions
-Description: Creates a new transaction for an order.
-Request Body:
-json
-Copy code
-{
-  "order_id": 1,
-  "amount": 10000,
-  "transaction_status": "completed"
-}
-Responses:
-Success: 201 Created
-Error: 400 Bad Request (missing fields)
-Get Transaction by ID
+**List Orders**
+- **Method**: GET
+- **Endpoint**: `/orders`
+- **Response**:
+  ```json
+  [
+    {
+      "id": 1,
+      "buyer_id": 1,
+      "product_id": 1,
+      "quantity": 20,
+      "status": "pending"
+    }
+  ]
+- **Success**: 200 OK
+- **Error**: 404 Not Found (no orders found)
 
-Method: GET
-Endpoint: /transactions/{id}
-Response:
-json
-Copy code
-{
-  "id": 1,
-  "order_id": 1,
-  "amount": 10000,
-  "transaction_status": "completed"
-}
-Success: 200 OK
-Error: 404 Not Found
-5. Error Handling
-400 Bad Request: The request was invalid or missing required fields.
-401 Unauthorized: Authentication failed or token was invalid.
-403 Forbidden: You do not have permission to access this resource.
-404 Not Found: The requested resource does not exist.
-500 Internal Server Error: A server error occurred, please try again later.
-6. Notes / Limitations
-Rate limits: 100 requests per minute per user.
-Farmers: Allowed to list only 10 products at a time.
-Image URLs: Should be valid and accessible.
-markdown
-Copy code
+### Transactions
 
-### Changes made:
-1. **Fixed Table of Contents**: Made sure all sections match their titles.
-2. **Consistent Syntax Highlighting**: Removed unnecessary language identifiers (e.g., `perl`, `vbnet`) that were not needed in code blocks.
-3. **Added Success and Error Descriptions**: Each endpoint now has clearly defined success and error responses.
-4. **Improved Structure**: Cleaned up the layout for better readability.
+**Create a Transaction**
+- **Method**: POST
+- **Endpoint**: `/transactions`
+- **Description**: Creates a new transaction for an order.
+- **Request Body**:
+  ```json
+  {
+    "order_id": 1,
+    "amount": 10000,
+    "transaction_status": "completed"
+  }
+- **Responses**:
+- ***Success***: 201 Created
+- ***Error***: 400 Bad Request (missing fields)
 
-This should now be ready to use or further adapt based on the API implementation.
+**Get Transaction by ID**
+- **Method**: GET
+- **Endpoint**: `/transactions/{id}`
+- **Response**:
+  ```json
+  {
+    "id": 1,
+    "order_id": 1,
+    "amount": 10000,
+    "transaction_status": "completed"
+  }
+- **Success**: 200 OK
+- **Error**: 404 Not Found
+
+## 5. Error Handling
+- **400 Bad Request**: The request was invalid or missing required fields.
+- **401 Unauthorized**: Authentication failed or token was invalid.
+- **403 Forbidden**: You do not have permission to access this resource.
+- **404 Not Found**: The requested resource does not exist.
+- **500 Internal Server Error**: A server error occurred, please try again later.
+
+## 6. Notes / Limitations
+- **Rate limits**: 100 requests per minute per user.
+- **Farmers**: Allowed to list only 10 products at a time.
+- **Image URLs**: Should be valid and accessible.
