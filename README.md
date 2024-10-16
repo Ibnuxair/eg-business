@@ -39,6 +39,26 @@ To obtain a token, users must authenticate through the login endpoint (not yet d
 
 ## 4. Endpoints
 
+### Login
+- **Method**: POST
+- **Endpoint**: /login
+- **Description**: Authenticates the user and provides a Bearer Token for further requests.
+- **Request Body**:
+  ```json
+  {
+    "email": "user@example.com",
+    "password": "your_password"
+  }
+- **Response**:
+  ```json
+  {
+    "token": "your_generated_token"
+  }
+- ***Success***: 200 OK
+- ***Error***:
+  - 400 Bad Request (invalid credentials)
+  - 401 Unauthorized (authentication failed)
+
 ### Farmers
 
 **Create a Farmer**
@@ -72,8 +92,8 @@ To obtain a token, users must authenticate through the login endpoint (not yet d
     "phone_number": "08012345678",
     "profile_image_url": "https://path.to/image.jpg"
   }
-- **Success**: 200 OK
-- **Error**: 404 Not Found
+- ***Success***: 200 OK
+- ***Error***: 404 Not Found
 
 ### Products
 
@@ -110,8 +130,8 @@ To obtain a token, users must authenticate through the login endpoint (not yet d
       "image_url": "https://path.to/product.jpg"
     }
   ]
-- **Success**: 200 OK
-- **Error**: 404 Not Found (no products found)
+- ***Success***: 200 OK
+- ***Error***: 404 Not Found (no products found)
 
 ### Staff
 
@@ -163,8 +183,8 @@ To obtain a token, users must authenticate through the login endpoint (not yet d
     "phone_number": "08091234567",
     "location": "Abuja"
   }
-- **Success**: 200 OK
-- **Error**: 404 Not Found
+- ***Success***: 200 OK
+- ***Error***: 404 Not Found
 
 ### Orders
 
@@ -198,8 +218,8 @@ To obtain a token, users must authenticate through the login endpoint (not yet d
       "status": "pending"
     }
   ]
-- **Success**: 200 OK
-- **Error**: 404 Not Found (no orders found)
+- ***Success***: 200 OK
+- ***Error***: 404 Not Found (no orders found)
 
 ### Transactions
 
@@ -229,8 +249,8 @@ To obtain a token, users must authenticate through the login endpoint (not yet d
     "amount": 10000,
     "transaction_status": "completed"
   }
-- **Success**: 200 OK
-- **Error**: 404 Not Found
+- ***Success***: 200 OK
+- ***Error***: 404 Not Found
 
 ## 5. Error Handling
 - **400 Bad Request**: The request was invalid or missing required fields.
