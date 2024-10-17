@@ -5,6 +5,7 @@
 2. [Base URL](#base-url)
 3. [Authentication](#authentication)
 4. [Endpoints](#endpoints)
+   - [Login](#login)
    - [Farmers](#farmers)
    - [Products](#products)
    - [Staff](#staff)
