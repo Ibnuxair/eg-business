@@ -5,7 +5,7 @@
 2. [Base URL](#base-url)
 3. [Authentication](#authentication)
 4. [Endpoints](#endpoints)
-   - [Login](#login)
+   - [Sign-in](#sign-in)
    - [Farmers](#farmers)
    - [Products](#products)
    - [Staff](#staff)
@@ -40,9 +40,9 @@ To obtain a token, users must authenticate through the login endpoint (not yet d
 
 ## 4. Endpoints
 
-### Login
+### Sign-in
 - **Method**: POST
-- **Endpoint**: /login
+- **Endpoint**: /sign-in
 - **Description**: Authenticates the user and provides a Bearer Token for further requests.
 - **Request Body**:
   ```json
